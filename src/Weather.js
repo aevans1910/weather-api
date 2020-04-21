@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Temperature from './Temperature'
+
 
 export default function Weather (props) {
     // This method returns undefined or a JSX component
@@ -22,7 +24,7 @@ export default function Weather (props) {
         <div>Title: {main}</div>
         <div>Desc: {description}</div>
         <div>Icon: {icon}</div>
-        <div>Temp: {temp}</div>
+        <Temperature temp = {temp}/>
         <div>Pressure: {pressure}</div>
         <div>Humidity: {humidity}</div>
         <div>Temp Min: {temp_min} Max:{temp_max}</div>
