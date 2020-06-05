@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: sans-serif;
+    color: #141a2e;
+    min-width: 700px;
+}
+
+h1 {
+    margin: 30px;
+}
+
+p {
+    margin: 0px 300px 20px 300px;
+    min-width: 500px;
+}

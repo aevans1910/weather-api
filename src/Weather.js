@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Temperature from './Temperature'
+import Temperature from './Temperature';
+import './Weather.css'
 
 
 export default function Weather (props) {
@@ -20,7 +21,7 @@ export default function Weather (props) {
     const { temp, pressure, humidity, temp_min, temp_max } = props.weatherData.main 
     
     return (
-      <div>
+      <div className="container">
         <div>Title: {main}</div>
         <div>Desc: {description}</div>
         <div>Icon: {icon}</div>
@@ -31,4 +32,6 @@ export default function Weather (props) {
       </div>
     )
   }
+
+
 

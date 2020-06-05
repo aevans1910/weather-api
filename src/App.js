@@ -4,6 +4,9 @@ import './App.css';
 
 import Weather from './Weather'
 import Form from './Form'
+import Header from './Header'
+import SaveMood from './SaveMood';
+import Mood from './Mood';
 
 /** 
  * This example illustrates a simple react project 
@@ -29,6 +32,7 @@ class App extends Component {
     this.state = {
       inputValue: '94010',     // Used to hold value entered in the input field
       weatherData: null,  // Used to hold data loaded from the weather API
+      moodData: [],
     }
   }
 
@@ -47,16 +51,31 @@ class App extends Component {
     this.setState({ weatherData: res })
   }
 
+  handleInputChange(inputValue) {
+    this.setState({inputValue})
+  }
+
+  handleMoodSubmit(e, mood) {
+    e.preventDefault()
+    const {moodData} = this.state
+    moodData.push({
+      mood,
+      weather: this.state.weatherData.weather[0].main
+    })
+    this.setState({moodData})
+  }
+
   render() {
-    const {weatherData} = this.state
+    const {weatherData, moodData} = this.state
     return (
       <div className="App">
-
-        <Form handleSubmit = {(e) => this.handleSubmit(e)}/>
+        <Header />
+        <Form handleSubmit = {(e) => this.handleSubmit(e)} handleInputChange = {this.handleInputChange.bind(this)}/>
 
         {/** Conditionally render this component */}
         <Weather weatherData = {weatherData}/>
-
+        {weatherData && <Mood handleSubmit = {(e, mood) => this.handleMoodSubmit(e, mood)} />}
+        <SaveMood moodData={moodData} />
       </div>
     );
   }

@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+input {
+    width: 200px;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+button {
+    border-radius: 10px; 
+    background-color: #284194;
+    border: none;
+    color: aliceblue;
+}
